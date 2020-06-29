@@ -1,0 +1,26 @@
+https://practice.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1/?track=ppc-arrays&batchId=221
+
+
+
+void subarraySum(int arr[], int n, int s){
+    int start = 0 , sum = 0 , i ; 
+    for ( i = 0 ; i < n ; i++ )
+    {
+        sum = sum + arr[i] ;
+        if ( sum > s )
+        {
+        sum = sum - arr[start] - arr[i] ;
+        start = start + 1 ;
+        i-- ;
+        }
+     
+        if ( sum == s )
+        {
+            cout << start + 1 << " " << i+1 ;
+            return ; 
+        }
+    }
+    
+    cout << "-1" ;
+    
+}
